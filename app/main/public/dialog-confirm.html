@@ -1,0 +1,18 @@
+<div class="bg"></div>
+<div class="dialog-delete">
+    <div class="title">
+        <div></div>
+        <span>{{title}}</span>
+        <div ng-click="close()">
+            <img style="width: 12px;height: 12px;text-align: center;line-height: 20px;" src="./main/img/icon-close.png"/>
+        </div>
+    </div>
+    <div class="error">
+        <span class="error-content">{{content}}</span>
+    </div>
+
+    <div class="btn-click">
+        <button class="btn" ng-click="cancel()">{{disable}}</button>
+        <button class="btn delete" ng-click="ok()">{{confirm}}</button>
+    </div>
+</div>

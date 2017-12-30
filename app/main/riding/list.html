@@ -1,0 +1,95 @@
+<div class="riding-list" ng-controller="RidingListController">
+
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <h1 class="mui-title">Notebike</h1>
+        <a class="mui-btn mui-btn-link mui-btn-nav mui-pull-right ">
+            <img class="right" ng-src="{{switchStatus.img}}" ng-click="switchListStatus()">
+        </a>
+    </header>
+
+
+    <!--<div id="pullrefresh" style="height: calc(100% + 44px);position: relative;top: -44px;"-->
+    <!--class="mui-content mui-scroll-wrapper" ng-show="switchStatus.value == 1 && tripList.length != 0">-->
+    <!--<div class="mui-scroll">-->
+    <!--&lt;!&ndash;数据列表&ndash;&gt;-->
+
+
+    <!--</div>-->
+
+    <!--</div>-->
+    <div class="riding-list-holder" ng-show="switchStatus.value == 1 && tripRefreshList.length != 0">
+        <div class="riding-item" ng-repeat="trip in tripRefreshList track by $index" ng-click="openDetailPage(trip.id)">
+            <div class="riding-img"
+                 style="background: url('{{trip.img}}'); background-position: center; background-size: cover;">
+            </div>
+            <div class="riding-description">
+                <div class="create-time">{{trip.create_time|timeFormat}}</div>
+                <div class="riding-info">
+                    <span class="info-title">里程:</span>
+                    <span class="data mr-20">{{trip.distance|tripFloat2}}km</span>
+                    <span class="info-title">用时:</span>
+                    <span class="data">{{trip.real_time | tripTime}}</span>
+                    <!--<span class="dix-icon icon-more fr"></span>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="loading-more" ng-show="switchStatus.value == 1 && tripRefreshList.length != 0&&!isEnd">
+            <a ng-show="!isLoading" ng-click="load()"><span>点击加载更多</span></a>
+            <a ng-show="isLoading"><span>加载中...</span></a>
+        </div>
+
+        <div class="icon-loading" ng-show="switchStatus.value == 1 && tripRefreshList.length != 0">
+            <a ng-show="!isRefreshing" ng-click="refresh()"><span class="mui-icon mui-icon-refreshempty"></span></a>
+            <a ng-show="isRefreshing"><span class="mui-spinner"></span></a>
+        </div>
+
+    </div>
+
+
+    <div class="riding-list2-holder" ng-if="switchStatus.value == 2 && tripRefreshList.length != 0">
+
+        <div id="container" style="height: 100%;width: 100%;position: absolute;"></div>
+        <div style="height: 100%;width: 100%;position: absolute;background: #F4F5F8" ng-if="hideMap"></div>
+
+        <div class="time-holder">
+            <h4>{{tripSelected.create_time | timeFormat:"y/m/d"}}</h4>
+            <p>{{tripSelected.create_time | timeFormat:"h:i:s"}}</p>
+        </div>
+        <div class="list-holder">
+            <ul class="list-box">
+                <li class="item" ng-class="{'click':trip.isSelected}"
+                    ng-repeat="trip in tripRefreshList track by $index"
+                    ng-click="selectedTrip($index)">
+
+                    <i class="more" ng-click="openDetailPage(trip.id)"></i>
+                    <div class="distance">
+                        <h5>行驶距离</h5>
+                        <p>{{trip.distance|tripFloat2}}km</p>
+                    </div>
+                    <div class="use-time">
+                        <h5>时间</h5>
+                        <p>{{trip.real_time | tripTime}}</p>
+                    </div>
+                    <img src="./main/img/link-list/car01.png">
+                </li>
+
+                <li class="load-btn" style="width: 20px" ng-click="loading()" ng-if="!isEnd&&tripRefreshList.length != 0">
+                    <img src="./main/img/icon-arrow-right.png">
+                </li>
+            </ul>
+        </div>
+        <!--<div class="load-btn" ng-click="loading()" ng-if="!isEnd">-->
+        <!--<img src="./main/img/icon-arrow-right.png">-->
+        <!--&lt;!&ndash;<span>加载更多</span>&ndash;&gt;-->
+        <!--</div>-->
+    </div>
+
+    <div class="empty-data" ng-show="isEmpty">
+        <div class="empty-box">
+            <img src="./main/img/icon-empty.png">
+            <p class="history">无骑行历史</p>
+            <p class="help-tip">你还不骑两圈试试?</p>
+        </div>
+    </div>
+</div>

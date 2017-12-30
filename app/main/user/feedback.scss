@@ -1,0 +1,31 @@
+.user-feedback {
+    padding-top: 45px;
+
+    .content {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 45px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 5px;
+
+        textarea {
+            margin-top: 10px;
+            height: 40%;
+            padding: 5px;
+            border: 1px solid #EFEFEF;
+        }
+        button {
+            width: 100%;
+            height: 40px;
+            float: right;
+            background: #FF780C;
+            color: #ffffff;
+        }
+
+        button:active {
+            background: #E06502;
+        }
+
+    }
+}

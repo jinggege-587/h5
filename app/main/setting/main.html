@@ -1,0 +1,123 @@
+<div class="setting-main" ng-controller="SettingMainController">
+    <div class="title">
+        <!--<button class="left">-->
+        <!--<img src="./main/img/back.png">-->
+        <!--</button>-->
+        <span class="mid">Notebike</span>
+    </div>
+
+    <div class="toggle-title">
+        <div class="setting" ng-class="{active:settoggle}" ng-click="toggleTitle(true)">车辆设置</div>
+        <div class="check" ng-class="{active:!settoggle}" ng-click="toggleTitle(false)">车辆体检</div>
+    </div>
+
+    <div class="content" ng-show="settoggle">
+        <div class="top-card">
+            <div class="mui-slider setting-img">
+                <div class="mui-slider-group ">
+                    <div class="mui-slider-item"><a class="img-size"><img src="./main/img/note-bike.png"/></a></div>
+                </div>
+            </div>
+            <a class="upgrade" href="javascript:;" ng-click="upgrade()">固件升级</a>
+        </div>
+
+        <div class="center-card">
+
+            <div class="gear-setting-desc">
+                <img src="./main/img/icon-gear.png"/>
+                <span>档位设置</span>
+                <!--<span>一档低速档最高时速为40KM/H</span>-->
+            </div>
+
+            <div class="btn-gear">
+                <button ng-class="{active:gear==1}" ng-click="changeGear(1)">无助力档</button>
+                <button class="ml-10" ng-class="{active:gear==2}" ng-click="changeGear(2)">中速档</button>
+                <button class="ml-10" ng-class="{active:gear==3}" ng-click="changeGear(3)">高速档</button>
+            </div>
+
+        </div>
+
+        <!--<div class="mui-card usb-card">-->
+        <!--<ul class="mui-table-view">-->
+        <!--<li class="mui-table-view-cell between">-->
+        <!--<div class="center">-->
+        <!--<img class="icon-usb" src="./main/img/icon-usb-left.png">-->
+        <!--<span>自动解锁开关</span>-->
+        <!--</div>-->
+        <!--<div class="mui-switch mui-switch-mini">-->
+        <!--<div class="mui-switch-handle"></div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+
+
+    </div>
+
+    <div ng-show="!settoggle">
+        <div class="main-content" ng-show="!detecting">
+            <div class="content-holder">
+                <div class="content-box">
+                    <div class="mui-slider main-pic">
+                        <div class="mui-slider-group">
+                            <div class="mui-slider-item"><a class="img-size"><img src="./main/img/note-bike.png"/></a></div>
+                        </div>
+                    </div>
+                    <div class="small-tip">
+                        <h4>发现问题</h4>
+                        <p>请及时联系客服进行维修</p>
+                    </div>
+                    <a class="start-detect" href="javascript:;" ng-click="startDetect()">开始检测</a>
+                </div>
+
+                <div class="extra-info-holder" ng-if="bmsCheck||electricMotorCheck">
+                    <ul class="extra-info-box">
+                        <li ng-if="bmsCheck">
+                            <img src="./main/img/icon-electricity.png">
+                            <span class="name">电池</span>
+                            <span class="small-tip">{{bmsError.dec}}</span>
+                            <i class="normal" ng-if="!bmsError.value"></i>
+                            <i class="error" ng-if="bmsError.value"></i>
+                        </li>
+                        <li ng-if="electricMotorCheck">
+                            <img src="./main/img/icon-motor.png">
+                            <span class="name">电机</span>
+                            <span class="small-tip">{{electricMotorError.dec}}</span>
+                            <i class="normal" ng-if="!electricMotorError.value"></i>
+                            <i class="error" ng-if="electricMotorError.value"></i>
+                        </li>
+                        <!--<li>-->
+                        <!--<img src="./main/img/icon-gyro.png">-->
+                        <!--<span class="name">陀螺仪</span>-->
+                        <!--<span class="small-tip"></span>-->
+                        <!--<i class="normal"></i>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<img src="./main/img/icon-controller.png">-->
+                        <!--<span class="name">控制器</span>-->
+                        <!--<span class="small-tip"></span>-->
+                        <!--<i class="normal"></i>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<img src="./main/img/icon-sensor.png">-->
+                        <!--<span class="name">传感器</span>-->
+                        <!--<span class="small-tip"></span>-->
+                        <!--<i class="normal"></i>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="mask" ng-show="showMask">
+            <div class="load-container load">
+                <div class="loader"><img src="./main/img/link-list/linking.gif"></div>
+                <p>检测中...</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

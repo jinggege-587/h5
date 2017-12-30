@@ -1,0 +1,19 @@
+<div class="reset-nickname" ng-controller="UserNickNameResetController">
+
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;" ng-click="goBack()"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">输入新昵称</h1>
+    </header>
+
+    <div class="content">
+        <div class="input-contain">
+            <input type="text" placeholder="请输入新的昵称" ng-model="nickname" ng-change="inputChanged()" ng-focus="stopTouch()">
+        </div>
+        <span class="desc" ng-if="!descTips">请输入3-15位字符</span>
+        <span class="desc desc-tips" ng-if="descTips">字符数太多请重新输入</span>
+        <button class="btn-complete" ng-class='{none:!clickable}' ng-click="updateNickName()">完成</button>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="link-list" ng-controller="CarLinkListController">
+
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;" ng-click="goBack()"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">连接列表</h1>
+        <a class="mui-btn mui-btn-link mui-btn-nav mui-pull-right" ng-if="isSearching">
+            <span class="mui-spinner mt-10"></span>
+        </a>
+    </header>
+
+    <div class="content">
+        <ul class="list" ng-if="!isEmpty">
+            <li ng-repeat="device in deviceList" ng-click="connectDevice(device)">
+                <img src="./main/img/link-list/car01.png">
+                <div class="car-info">
+                    <h4>{{device.id | idFilter}}</h4>
+                    <span>{{device.name}}</span>
+                </div>
+                <div class="linked" ng-if="device.status == 1">已连接<i></i></div>
+                <div class="linking" ng-if="device.status == 0">连接中<i></i></div>
+                <div class="unlink" ng-if="device.status == -1">未连接<i></i></div>
+            </li>
+        </ul>
+
+        <div class="empty" ng-if="isEmpty&&!isSearching">
+            <img src="./main/img/scan-empty.png">
+            <span>未寻找到任何车辆</span>
+        </div>
+    </div>
+</div>

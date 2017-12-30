@@ -1,0 +1,7 @@
+.idea
+.idea/
+.DS_Store
+node_modules
+ui/node_modules
+build/
+build

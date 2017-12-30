@@ -1,0 +1,235 @@
+.main-user {
+    padding-top: 45px;
+
+    .content {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 45px);
+        padding: 5px;
+        overflow-y: auto;
+
+        .user-card {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+
+            align-items: center;
+            -webkit-box-align: center;
+            -moz-align-items: center;
+            -webkit-align-items: center;
+
+            justify-content: space-between;
+            -webkit-box-pack: justify;
+            -moz-justify-content: space-between;
+            -webkit-justify-content: space-between;
+
+            border: 1px solid #DDDDDD;
+            background: #fff;
+            padding: 12px 10px;
+            .left {
+                display: flex;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+
+                align-items: center;
+                -webkit-box-align: center;
+                -moz-align-items: center;
+                -webkit-align-items: center;
+
+                .avatar {
+                    width: 75px;
+                    height: 75px;
+                    border-radius: 50%;
+                    border: 1px solid #F2F3F6;
+                    display: flex;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+
+                    align-items: center;
+                    -webkit-box-align: center;
+                    -moz-align-items: center;
+                    -webkit-align-items: center;
+
+                    justify-content: center;
+                    -webkit-box-pack: center;
+                    -moz-justify-content: center;
+                    -webkit-justify-content: center;
+                    img {
+                        display: block;
+                        width: 65px;
+                        height: 65px;
+                        border-radius: 50%;
+                    }
+                }
+                span {
+                    display: block;
+                    margin-left: 20px;
+                    color: #0E0F32;
+                    font-size: 18px;
+                }
+            }
+
+        }
+
+        .user-card:active {
+            background: #eee;
+        }
+
+        .mileage-card {
+            width: 100%;
+            height: 80px;
+            border: 1px solid #DDDDDD;
+            background: #fff;
+            margin-top: 5px;
+            position: relative;
+            display: flex;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+
+            align-items: center;
+            -webkit-box-align: center;
+            -moz-align-items: center;
+            -webkit-align-items: center;
+
+            .total-mileage, .total-time {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+
+                flex-direction: column;
+                -webkit-box-direction: normal;
+                -webkit-box-orient: vertical;
+                -moz-flex-direction: column;
+                -webkit-flex-direction: column;
+
+                align-items: center;
+                -webkit-box-align: center;
+                -moz-align-items: center;
+                -webkit-align-items: center;
+
+                justify-content: center;
+                -webkit-box-pack: center;
+                -moz-justify-content: center;
+                -webkit-justify-content: center;
+                span {
+                    display: block;
+                    font-size: 12px;
+                    color: #CFD4DE;
+                    letter-spacing: 0.55px;
+                }
+                span + span {
+                    display: block;
+                    margin-top: 5px;
+                    font-size: 24px;
+                    color: #050936;
+                    letter-spacing: 1.11px;
+                }
+
+            }
+            .total-mileage:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 1px;
+                height: 100px;
+                top: -15%;
+                right: 50%;
+                background: #E5E9F1;
+                transform: scale(0.5);
+                -ms-transform: scale(0.5);
+                -moz-transform: scale(0.5);
+                -webkit-transform: scale(0.5);
+                -o-transform: scale(0.5);
+            }
+
+        }
+        .setting-card {
+            margin: 5px 0 0 0;
+
+            .mui-table-view-cell {
+                height: 48px;
+                .user-card-content-text {
+                }
+
+            }
+            .mui-table-view-cell:after {
+                left: 10px;
+                right: 5px;
+            }
+
+            span {
+                margin-left: 10px;
+                font-size: 16px;
+                color: #050936;
+            }
+
+            .icon-push {
+                width: 24px;
+                height: 19px;
+
+            }
+            .icon-help {
+                width: 24px;
+                height: 24px;
+            }
+            .icon-about {
+                width: 24px;
+                height: 24px;
+            }
+            .icon-feedback {
+                width: 24px;
+                height: 21px;
+            }
+            .icon-tutorial {
+                width: 24px;
+                height: 19px;
+            }
+        }
+
+    }
+    .center {
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -moz-align-items: center;
+        -webkit-align-items: center;
+
+    }
+
+    .between {
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -moz-align-items: center;
+        -webkit-align-items: center;
+
+        justify-content: space-between;
+        -webkit-box-pack: justify;
+        -moz-justify-content: space-between;
+        -webkit-justify-content: space-between;
+    }
+}

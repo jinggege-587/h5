@@ -1,0 +1,28 @@
+<div class="page-content feel" ng-controller="RidingFeelController">
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;" ng-click="goBack()"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">骑行感受</h1>
+        <button class="mui-btn mui-btn-link mui-btn-nav mui-pull-right right" ng-click="finish()" ng-disabled="!ridingFeel">完成</button>
+    </header>
+    <!--<div class="title" style="z-index: 1000">-->
+        <!--<button class="left" ng-click="goBack()">-->
+            <!--<img src="./main/img/back.png">-->
+        <!--</button>-->
+        <!--<span class="mid">骑行感受</span>-->
+        <!--<button class="right" ng-click="finish()">完成</button>-->
+    <!--</div>-->
+    <!--<div class="bar bar-header bar-light">-->
+        <!--<button class="button button-icon left" ng-click="goBack()">-->
+            <!--<img src="./main/img/back.png">-->
+        <!--</button>-->
+        <!--<h1 class="title">骑行感受</h1>-->
+        <!--<button class="button button-clear right" ng-click="finish()">完成</button>-->
+    <!--</div>-->
+
+    <div class="riding-feel-holder">
+        <textarea placeholder="写下你的骑行感受..." ng-model="ridingFeel"></textarea>
+    </div>
+</div>

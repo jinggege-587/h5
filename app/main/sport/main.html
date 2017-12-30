@@ -1,0 +1,242 @@
+<div class="sport-main" ng-controller="SportMainController">
+    <div class="title" style="z-index: 1000">
+        <button class="left" ng-click="back()">
+            <img src="./main/img/back.png">
+        </button>
+        <span class="mid" ng-show="currentTripStatus != 2 && currentTripStatus != 3">Notebike</span>
+        <span class="mid" ng-show="currentTripStatus == 2">暂停骑行</span>
+        <span class="mid" ng-show="currentTripStatus == 3">完成骑行</span>
+        <button class="right" ng-show="currentTripStatus != 3" ng-click="switchModel()">
+            <img src="./main/img/icon-map.png" ng-hide="mapModel">
+            <img src="./main/img/icon-block.png" ng-show="mapModel">
+            <!--<img src="./main/img/icon-share.png" ng-show="currentTripStatus == 3">-->
+        </button>
+        <button class="right" ng-show="currentTripStatus == 3" ng-click="share()">
+            <img src="./main/img/icon-share.png">
+        </button>
+    </div>
+
+    <div class="hide" ng-class="{'loaded':isLoaded}">
+        <div class="content">
+            <div id="dashboard" ng-show="!mapModel">
+                <div class="dashboard">
+                    <div class="dashboard_bg">
+                        <div ng-if="isRecycle" ng-class="{'recycle':isRecycle}">
+                            <img class="rotation" src="./main/img/icon-recycle.png"/>
+                            <span>能量正在回收</span>
+                        </div>
+                        <h1 class="speed">{{speed}}</h1>
+                        <h4>km/h</h4>
+                        <h4>当前时速</h4>
+                    </div>
+                </div>
+                <div class="drive-info">
+                    <div class="time">
+                        <h3>{{rideTime | rideTime}}</h3>
+                        <span>行驶时间</span>
+                    </div>
+                    <div class="mileage">
+                        <h3>{{runMileage}} km</h3>
+                        <span>行驶距离</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map" ng-show="mapModel">
+                <!--<img src="./main/img/map-img.png"/>-->
+                <div id="map" style="display: none"></div>
+                <div id="container" style="height:calc(100% - 206px);width: 100%;position: absolute;"
+                     ng-class="{walk:rideType == 0&&(currentTripStatus==0||currentTripStatus==1)}"></div>
+                <!---->
+            </div>
+
+            <div class="drive-controller" ng-show="currentTripStatus != 2">
+                <div class="electricity-desc" ng-if="rideType == 1">
+                    <span>电池电量:</span>
+                    <span>{{dumpEnergy}}</span>
+                </div>
+                <div class="electricity-line" ng-if="rideType == 1">
+                    <div class="electricity-inline" ng-style="{width:dumpEnergy}"></div>
+                </div>
+
+                <div class="btn-gear" ng-if="rideType == 1">
+                    <button ng-class="{active:gear==1}" ng-click="changeGear(1)">无助力档</button>
+                    <button class="ml-10" ng-class="{active:gear==2}" ng-click="changeGear(2)">中速档</button>
+                    <button class="ml-10" ng-class="{active:gear==3}" ng-click="changeGear(3)">高速档</button>
+                </div>
+
+                <!--<div class="lock-car" ng-click="lockCar()" ng-if="carStatus">-->
+                <!--<div class="left-icon">-->
+                <!--<img src="./main/img/icon-lock.png">-->
+                <!--</div>-->
+                <!--锁定车辆-->
+                <!--</div>-->
+
+                <!--<div class="unlock-car" ng-click="unLockCar()" ng-if="!carStatus">-->
+                <!--<div class="left-icon">-->
+                <!--<img src="./main/img/icon-lock.png">-->
+                <!--</div>-->
+                <!--解锁车辆-->
+                <!--</div>-->
+
+                <div class="start-car" ng-click="start()" ng-if="currentTripStatus == 0">开始</div>
+
+                <div class="stop-car" ng-click="stop()" ng-if="currentTripStatus == 1">暂停</div>
+
+            </div>
+        </div>
+
+        <div class="tip" ng-if="!isConnected">
+            <span>连接已经断开,将无法准确计算数据</span>
+        </div>
+
+        <div class="stopMask" ng-show="currentTripStatus == 2">
+
+            <div class="content">
+                <div class="row-info">
+                    <div class="left">
+                        <div class="icon">
+                            <img src="./main/img/icon-mileage.png">
+                        </div>
+                        <div class="info">
+                            <span>行驶距离</span>
+                            <h4>{{runMileage |tripFloat2 }} km</h4>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="icon">
+                            <img src="./main/img/icon-time.png">
+                        </div>
+                        <div class="info">
+                            <span>行驶时间</span>
+                            <h4>{{rideTime | rideTime}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-info mt-20">
+                    <div class="left">
+                        <div class="icon">
+                            <img src="./main/img/icon-max-speed.png">
+                        </div>
+                        <div class="info">
+                            <span>消耗卡路里</span>
+                            <h4>{{kcal | tripFloat2}} kcal</h4>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="icon">
+                            <img src="./main/img/icon-average-speed.png">
+                        </div>
+                        <div class="info">
+                            <span>平均速度</span>
+                            <h4>{{aveSpeed|tripFloat2}} km/h</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <button ng-click="next()">继续</button>
+                    <button ng-click="end()">结束</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="finishMask" ng-show="currentTripStatus == 3">
+
+            <div class="delete-contain" ng-show="currentTripStatus == 3">
+                <div class="delete" ng-click="deleteRide()">
+                    <img src="./main/img/icon-delete.png">
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="data-box">
+                    <div class="row-info">
+                        <div class="left">
+                            <div class="icon">
+                                <img src="./main/img/icon-mileage.png">
+                            </div>
+                            <div class="info">
+                                <span>行驶距离</span>
+                                <h4>{{runMileage |tripFloat2 }} km</h4>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="icon">
+                                <img src="./main/img/icon-time.png">
+                            </div>
+                            <div class="info">
+                                <span>行驶时间</span>
+                                <h4>{{rideTime | rideTime}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-info mt-20">
+                        <div class="left">
+                            <div class="icon">
+                                <img src="./main/img/icon-max-speed.png">
+                            </div>
+                            <div class="info">
+                                <span>消耗卡路里</span>
+                                <h4>{{kcal | tripFloat2}} kcal</h4>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="icon">
+                                <img src="./main/img/icon-average-speed.png">
+                            </div>
+                            <div class="info">
+                                <span>平均速度</span>
+                                <h4>{{aveSpeed | tripFloat2}} km/h</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="finish-ride" href="javascript:;" ng-click="finishRide()" ng-if="showFinishBtn">完成骑行</a>
+            </div>
+
+        </div>
+
+        <div class="shareMask" ng-show="showShareMask">
+            <div class="share">
+                <div class="item-box">
+                    <div class="item-li" ng-click="onShareWeibo()">
+                        <div class="img-box">
+                            <img src="./main/img/icon-weibo.png"/>
+                        </div>
+                        <span>微博</span>
+                    </div>
+                    <div class="item-li" ng-click="onShareQQ()">
+                        <div class="img-box">
+                            <img src="./main/img/icon-qq.png"/>
+                        </div>
+                        <span>QQ</span>
+                    </div>
+                    <div class="item-li" ng-click="onShareMoments()">
+                        <div class="img-box">
+                            <img src="./main/img/icon-moments.png"/>
+                        </div>
+                        <span>朋友圈</span>
+                    </div>
+                    <div class="item-li" ng-click="onShareWechatFriend()">
+                        <div class="img-box border-none">
+                            <img src="./main/img/icon-weixin.png"/>
+                        </div>
+                        <span>微信好友</span>
+                    </div>
+                </div>
+
+                <div class='cancel' href="iavascript:;" ng-click="cancelShare()">取消</div>
+            </div>
+        </div>
+
+        <div class="loadmask" ng-show="showLoadMask">
+            <div class="load-container load">
+                <div class="loader"><img src="./main/img/link-list/linking.gif"></div>
+                <p>轨迹生成中...</p>
+            </div>
+        </div>
+    </div>
+</div>

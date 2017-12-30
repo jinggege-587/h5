@@ -1,0 +1,46 @@
+
+<div class="main" ng-controller="MainController">
+
+    <div class="car-content" ng-hide="selected!=0">
+        @car-page
+    </div>
+    <div class="riding-content" ng-hide="selected!=1">
+        @riding-page
+    </div>
+    <div class="setting-content" ng-hide="selected!=2">
+        @setting-page
+    </div>
+    <div class="user-content" ng-hide="selected!=3">
+        @user-page
+    </div>
+
+    <div class="bottom">
+        <div class="common-box">
+            <div class="common" ng-click="selectedTab(0)">
+                <img ng-src="{{tab[0].img}}"/>
+                <span ng-style="{color:tab[0].color}">车辆</span>
+            </div>
+            <div class="common trail" ng-click="selectedTab(1)">
+                <img ng-src="{{tab[1].img}}"/>
+                <span ng-style="{color:tab[1].color}">轨迹</span>
+            </div>
+        </div>
+
+        <div class="go" ng-click="go()">
+            <img src="./main/img/go.png"/>
+        </div>
+
+        <div class="common-box" style="float: right">
+            <div class="common friend" ng-click="selectedTab(2)">
+                <img ng-src="{{tab[2].img}}"/>
+                <span ng-style="{color:tab[2].color}">车检</span>
+            </div>
+            <div class="common" ng-click="selectedTab(3)">
+                <img ng-src="{{tab[3].img}}"/>
+                <span ng-style="{color:tab[3].color}">个人</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>

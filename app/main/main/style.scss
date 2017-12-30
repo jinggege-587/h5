@@ -1,0 +1,66 @@
+.main {
+    overflow: hidden;
+
+    .car-content, .riding-content, .setting-content, .user-content{
+        position: absolute;
+        width: 100%;
+        height:calc(100% - 50px);
+    }
+
+    .bottom {
+        width: 100%;
+        height: 49px;
+        position: absolute;
+        bottom: 0;
+        background: #FFFFFF;
+        z-index: 10;
+        box-shadow: 0 -1px 1px 0 rgba(129,138,193,0.20);
+
+        .common-box {
+            float: left;
+            width: calc((100% - 55px)/2);
+        }
+
+        .common {
+            width: 50%;
+            text-align: center;
+            height: 49px;
+            float: left;
+            img {
+                width: 20px;
+                display: block;
+                height: 20px;
+                margin: 6px auto 2px auto;
+            }
+            span {
+                font-size: 10px;
+                color: #CFD4DE;
+                letter-spacing: 1px;
+                display: block;
+            }
+        }
+
+        .trail {
+            padding-right: 10%;
+        }
+
+        .friend {
+            padding-left: 10%;
+        }
+
+        .go {
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            position: absolute;
+            top: -10px;
+            z-index: 10;
+            background: #FFFFFF;
+            box-shadow: 0 -1px 0 0 #DEE1EF;
+            border-radius: 50%;
+            img {
+                width: 55px;
+            }
+        }
+    }
+}

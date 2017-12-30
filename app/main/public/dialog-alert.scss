@@ -1,0 +1,90 @@
+.dialog-alert {
+    margin: 0 auto;
+    width: 250px;
+    height: 200px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #C5CBD7;
+
+    .title {
+        position: relative;
+        width: 100%;
+        height: 44px;
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -moz-align-items: center;
+        -webkit-align-items: center;
+
+        justify-content: space-between;
+        -webkit-box-pack: justify;
+        -moz-justify-content: space-between;
+        -webkit-justify-content: space-between;
+
+        padding: 0 20px;
+        img {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+
+        span {
+            display: block;
+            color: #050936;
+            font-size: 18px;
+        }
+
+        div {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .title:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 200%;
+        height: 1px;
+        top: 100%;
+        left: -50%;
+        background: #d0d4dd;
+        -webkit-transform: scale(0.5);
+    }
+    .error {
+        margin-top: 20px;
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+
+        justify-content: center;
+        -webkit-box-pack: center;
+        -moz-justify-content: center;
+        -webkit-justify-content: center;
+
+        .error-content {
+            display: block;
+            font-size: 16px;
+            color: #050936;
+        }
+    }
+    .btn-click {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .btn {
+        font-size: 16px;
+        height:44px;
+        width: 100%;
+        color: #636982;
+        display: block
+    }
+
+}

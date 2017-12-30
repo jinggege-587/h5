@@ -1,0 +1,16 @@
+<div class="user-feedback" ng-controller="UserFeedBackController">
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">问题反馈</h1>
+    </header>
+    <div class="content">
+        <textarea rows="7" placeholder="有什么问题,尽情吐槽吧..." ng-model="content" ng-focus="stopTouch()"></textarea>
+        <button  ng-click="submitFeedBack()">
+            提交反馈
+        </button>
+    </div>
+
+</div>

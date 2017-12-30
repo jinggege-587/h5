@@ -1,0 +1,20 @@
+<div ng-controller="GeolocationController">
+    <span>{{text}}</span>
+    <br>
+    <button ng-click="system()">系统轮训Speed</button>
+    <br/>
+    <button ng-click="amap()">高德轮训Speed</button>
+    <br/>
+    <button ng-click="systemWatcher()">系统监听Speed</button>
+    <button ng-click="cancelSystemWatcher()">取消系统监听Speed</button>
+    <br/>
+    <button ng-click="amapWatcher()">高德监听Speed</button>
+    <button ng-click="cancelAmapWatcher()">取消高德监听Speed</button>
+    <br/>
+    <button ng-click="wgs84()">wgs84</button>
+    <button ng-click="gcj02()">gcj02</button>
+    <button ng-click="bd09()">bd09</button>
+    <button ng-click="bd09ll()">bd09ll</button>
+    <br/>
+    <button ng-click="enableHighAccuracy()">enableHighAccuracy</button>
+</div>

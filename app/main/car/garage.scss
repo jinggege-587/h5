@@ -1,0 +1,100 @@
+.garage {
+
+    .content {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 45px);
+        padding: 5px 5px 0 5px;
+        margin-top: 45px;
+        overflow: auto;
+        ul.list {
+            li {
+                background: #FFFFFF;
+                border: 1px solid #CACFD9;
+                box-shadow: 0 1px 2px 0 rgba(129, 138, 193, 0.20);
+                border-radius: 2px;
+                margin-bottom: 5px;
+                height: 200px;
+                .head {
+                    overflow: hidden;
+                    .left-section {
+                        width: calc(100% - 40px);
+                        height: 44px;
+                        float: left;
+                        border-right: 1px solid #E5E9F1;
+                        position: relative;
+                        i {
+                            width: 10px;
+                            height: 10px;
+                            display: block;
+                            float: left;
+                            position: absolute;
+                            top: 19px;
+                            left: 10px;
+                        }
+                        i.black {
+                            background-image: radial-gradient(50% 100%, #585965 4%, #050936 100%);
+                            border: 1px solid #000000;
+                            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.20);
+                            border-radius: 2px;
+                        }
+                        i.yellow {
+                            background-image: radial-gradient(50% 100%, #FFED35 4%, #FFE900 100%);
+                            border: 1px solid #EEDC28;
+                            border-radius: 2px;
+                        }
+                        i.blue {
+                            background-image: radial-gradient(50% 99%, #6FA7FF 9%, #3983F6 99%);
+                            border: 1px solid #4856D0;
+                            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.20);
+                            border-radius: 2px;
+                        }
+                        span.name {
+                            font-size: 18px;
+                            color: #050936;
+                            position: absolute;
+                            left: 30px;
+                            top: 14px;
+                        }
+                        span.color {
+                            position: absolute;
+                            top: 14px;
+                            right: 50px;
+                            font-size: 14px;
+                            color: #050936;
+                            letter-spacing: 0.77px;
+                        }
+                    }
+                    .right-section {
+                        width: 40px;
+                        height: 44px;
+                        float: right;
+                        text-align: center;
+                        padding-top: 12px;
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+                .split-line {
+                    clear: both;
+                    border-top: 1px solid #E5E9F1;
+                    box-shadow: 0 1px 1px 0 rgba(198, 200, 215, 0.10);
+                    width: calc(100% - 6px);
+                    position: relative;
+                    left: 3px;
+                }
+                .main {
+                    height: calc(100% - 45px);
+                    text-align: center;
+                    img {
+                        width: 190px;
+                        height: 127px;
+                        margin-top: 13px;
+                    }
+                }
+            }
+        }
+    }
+}

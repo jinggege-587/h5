@@ -1,0 +1,142 @@
+<div class="page-content" ng-controller="RidingDetailController">
+
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;" ng-click="goBack()"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">Notebike</h1>
+        <a class="mui-btn mui-btn-link mui-btn-nav mui-pull-right ">
+            <img class="right" ng-src="./main/img/icon-share.png" ng-click="share()">
+        </a>
+    </header>
+
+    <div class="riding-detail-holder">
+
+        <div id="container" style="height: 100%;width: 100%;position: absolute;"></div>
+        <div ng-show="!showMask">
+            <div class="header-info">
+                <div class="row">
+                    <div class="col col-75 riding-time-info">
+                        <div class="item-time">{{trip.start_time | timeFormat}}</div>
+                        <span class="split"></span>
+                        <div class="item-time">{{trip.end_time | timeFormat}}</div>
+                    </div>
+                    <div class="col text-right" ng-click="deleteRideRecord()">
+                        <span class="delete-action">删除骑行</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-info has-detail" ng-class="{'open': tripStatus == 1 || tripStatus == 2}">
+            <div class="title">骑行数据</div>
+            <div class="data-info">
+                <div class="row">
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-distance mr-10"></span>行驶距离</div>
+                        <div class="data-data">{{trip.distance | tripFloat2}} km</div>
+                    </div>
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-time mr-10"></span>行驶时间</div>
+                        <div class="data-data">{{(trip.real_time) | tripTime}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-max-speed mr-10"></span>卡路里</div>
+                        <div class="data-data">{{trip.kcal | tripFloat2}} kcal</div>
+                    </div>
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-ave-speed mr-10"></span>平均速度</div>
+                        <div class="data-data">{{trip.speed_average | tripFloat2}} km/h</div>
+                    </div>
+                </div>
+            </div>
+            <div class="riding-feel" style=" border-top: none;" ng-if="tripStatus == 1">
+                <span class="dix-icon icon-pen span-icon-pen"></span>
+                <input type="text" class="riding-input" style="margin-bottom: 5px" ng-click="writeRideFeel()"
+                       ng-focus="stopTouch()"
+                       placeholder="写些骑行感受吧"/>
+            </div>
+
+            <div class="riding-feel" ng-if="tripStatus == 2">
+                <div class="feel-title" ng-click="showRideFeel()">
+                    <span class="dix-icon icon-feel mr-10"></span>骑行感受
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-info" ng-class="{'open': tripStatus == 3, 'hide': tripStatus == 1 || tripStatus == 2}">
+            <div class="title">骑行数据</div>
+            <div class="data-info">
+                <div class="row">
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-distance mr-10"></span>行驶距离</div>
+                        <div class="data-data">{{trip.distance | tripFloat2}} km</div>
+                    </div>
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-time mr-10"></span>行驶时间</div>
+                        <div class="data-data">{{trip.real_time | tripTime}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-max-speed mr-10"></span>卡路里</div>
+                        <div class="data-data">{{trip.kcal | tripFloat2}} kcal</div>
+                    </div>
+                    <div class="col">
+                        <div class="data-title"><span class="dix-icon icon-riding-ave-speed mr-10"></span>平均速度</div>
+                        <div class="data-data">{{trip.speed_average | tripFloat2}} km/h</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="riding-feel">
+                <div class="feel-title" ng-click="closeRideFeel()">
+                    <span class="dix-icon icon-feel mr-10"></span>骑行感受
+                </div>
+                <div class="feel-content">{{trip.feel}}
+                </div>
+                <div class="feel-edit" ng-click="updateRideFeel()">
+                    <span class="dix-icon icon-pen mr-10"></span>修改感受
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mask" ng-show="showMask">
+            <div class="share">
+                <div class="item-box">
+                    <div class="item-li" ng-click="onShareWeibo()">
+                        <div class="img-box">
+                            <img src="./main/img/icon-weibo.png"/>
+                        </div>
+                        <span>微博</span>
+                    </div>
+                    <div class="item-li" ng-click="onShareQQ()">
+                        <div class="img-box">
+                            <img src="./main/img/icon-qq.png"/>
+                        </div>
+                        <span>QQ</span>
+                    </div>
+                    <div class="item-li" ng-click="onShareMoments()">
+                        <div class="img-box">
+                            <img src="./main/img/icon-friend-circle.png"/>
+                        </div>
+                        <span>朋友圈</span>
+                    </div>
+                    <div class="item-li" ng-click="onShareWechatFriend()">
+                        <div class="img-box border-none">
+                            <img src="./main/img/icon-weixin.png"/>
+                        </div>
+                        <span>微信好友</span>
+                    </div>
+                </div>
+
+                <a href="iavascript:;" ng-click="onClickCancel()">取消</a>
+            </div>
+        </div>
+
+    </div>
+</div>

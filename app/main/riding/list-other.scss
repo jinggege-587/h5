@@ -1,0 +1,121 @@
+.riding-list2-holder {
+    height: 100%;
+    position: relative;
+
+    .time-holder {
+        width: 100px;
+        height: 74px;
+        position: absolute;
+        background-color: rgba(255, 255, 255, .6);
+        border-bottom-right-radius: 18px;
+        padding: 20px 10px;
+
+        h4 {
+            font-size: 14px;
+            color: #050936;
+            letter-spacing: 0.77px;
+            margin: 0;
+        }
+
+        p {
+            font-size: 12px;
+            color: #050936;
+            letter-spacing: 0.66px;
+            margin-top: 4px;
+        }
+    }
+
+    .list-holder {
+        position: absolute;
+        bottom: 40px;
+        height: 232px;
+        width: 100%;
+
+        ul.list-box {
+            height: 232px;
+            width: 100%;
+            overflow-x: auto;
+
+            li.item {
+                position: relative;
+                border-color: #ddd;
+                background-color: #fff;
+                top: 6px;
+                width: 180px;
+                height: calc(100% - 12px);
+                margin-right: 4px;
+                display: inline-block;
+                box-shadow: 0 2px 20px 0 rgba(144, 152, 182, 0.20), 0 1px 2px 0 rgba(129, 138, 193, 0.20);
+                border-radius: 2px;
+                padding: 10px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .more {
+                    width: 20px;
+                    height: 10px;
+                    background: url("../img/icon_more_detail.png") no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    top: 10px;
+                    right: 5px;
+                }
+
+                .distance, .use-time {
+                    margin-bottom: 10px;
+                    h5 {
+                        font-size: 10px;
+                        color: #B6BCC7;
+                        letter-spacing: 0.55px;
+                    }
+
+                    p {
+                        font-size: 16px;
+                        color: #050936;
+                        letter-spacing: 0.88px;
+                    }
+                }
+
+                img {
+                    height: 109px;
+                    width: 100%;
+                }
+            }
+
+            li.load-btn {
+                top: 6px;
+                height: calc(100% - 12px);
+                margin-right: 4px;
+                display: inline-block;
+                box-shadow: 0 2px 20px 0 rgba(144, 152, 182, 0.20), 0 1px 2px 0 rgba(129, 138, 193, 0.20);
+                border-radius: 2px;
+                position: relative;
+                line-height: 232px;
+                text-align: center;
+                width: 20px;
+                background: #ffffff;
+
+                img {
+                    display: inline;
+                    width: 10px;
+                    height: 22px;
+                    top: calc(50% - 11px);
+                    left: calc(50% - 5px);
+                    position: absolute;
+                }
+            }
+
+            .click {
+                width: 190px !important;
+                top: 1px !important;
+                height: calc(100% - 2px) !important;
+            }
+        }
+    }
+
+    .load-btn:active {
+        background: #EFEFEF;
+    }
+}

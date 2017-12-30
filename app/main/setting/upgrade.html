@@ -1,0 +1,22 @@
+<div class="setting-upgrade" ng-controller="SettingUpgradeController">
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">固件升级</h1>
+    </header>
+
+    <div class="content">
+        <ul class="list">
+            <li>
+                <span>当前最新版本:</span>
+                <span>{{softwareVersion}}</span>
+                <div class="btn-right" ng-click="downLoadUpgradeFile()">
+                    <div class="bg-loading" ng-style="{width:process}"></div>
+                    <div class="process">{{isUpgrading?(process=="100%"?'完成':process):'升级'}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

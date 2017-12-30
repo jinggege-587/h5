@@ -1,0 +1,19 @@
+<div class="dialog-car-fail-link">
+    <div class="title">
+        <img src="./main/img/icon-warn.png">
+        <span>车辆连接失败</span>
+        <div ng-click="close()">
+            <img style="width: 12px;height: 12px;text-align: center;line-height: 20px;"
+                 src="./main/img/icon-close.png"/>
+        </div>
+    </div>
+    <div class="error">
+        <span class="error-content">抱歉,车辆无法正常连接</span>
+    </div>
+
+    <div class="btn-click">
+        <button class="btn" style="margin-top: 20px" ng-click="openSolutionPage()">取消</button>
+
+        <button class="btn" style="margin-top:10px" ng-click="tryAgain()">再试试</button>
+    </div>
+</div>

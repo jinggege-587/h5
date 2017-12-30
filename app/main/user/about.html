@@ -1,0 +1,33 @@
+<div class="user-about" ng-controller="UserAboutController">
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">关于</h1>
+    </header>
+    <div class="content">
+
+        <div class="logo">
+            <img src="./main/img/icon-logo.png"/>
+            <span class="name">Notebike</span>
+            <span class="version">version {{currentVersion}}</span>
+        </div>
+
+        <div class="mui-card update-card">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell" ng-click="updateVersion()">
+                    <span class="user-card-content-text">版本更新</span>
+                    <span>{{versionDesc}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom">
+            <span>锣卜公司 版权所有</span>
+            <span>Copyright © 2016 luobo</span>
+            <span>All Rights Reserved</span>
+        </div>
+    </div>
+
+</div>

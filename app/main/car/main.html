@@ -1,0 +1,120 @@
+<div id="main-car" class="main-car" ng-controller="CarMainController">
+
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;" ng-click="openScanPage()"
+           class="mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img class="left" src="./main/img/scan.png">
+        </a>
+        <h1 class="mui-title">Notebike</h1>
+        <a class="mui-btn mui-btn-link mui-btn-nav mui-pull-right ">
+            <img class="right" src="./main/img/add.png" ng-click="openListPage()">
+        </a>
+    </header>
+
+    <div class="content">
+        <div class="top-card">
+            <div class="left-modal">
+                <div class="bike-name">
+                    <span ng-if="!isEmpty">{{selectedModel.name?(selectedModel.device_name?selectedModel.name + "("+selectedModel.device_name+")":selectedModel.name):(selectedModel.device_name?selectedModel.device_name:"")}}</span>
+                    <span ng-if="isEmpty">未绑定过车辆</span>
+                </div>
+            </div>
+        </div>
+        <div class="mid-card">
+            <div class="mui-slider img-contain"
+                 ng-hide="processStatus.value == 1 || binderVehicleList.length == 0||isEmpty">
+                <div class="mui-slider-group">
+                    <!--&lt;!&ndash;支持循环，需要重复图片节点&ndash;&gt;-->
+                    <!--<div class="mui-slider-item mui-slider-item-duplicate">-->
+                    <!--<a class="img-size"><img src="./main/img/note-bike.png"/></a>-->
+                    <!--</div>-->
+                    <div class="mui-slider-item" ng-repeat="binderVehicle in binderVehicleList">
+                        <a class="img-size"><img src="./main/img/note-bike.png"/></a>
+                    </div>
+                    <!--&lt;!&ndash;支持循环，需要重复图片节点&ndash;&gt;-->
+                    <!--<div class="mui-slider-item mui-slider-item-duplicate" ng-hide="binderVehicleList.length == 0">-->
+                    <!--<a class="img-size"><img src="./main/img/note-bike.png"/></a>-->
+                    <!--</div>-->
+                </div>
+
+                <div class="mui-slider-indicator">
+                    <div class="mui-indicator indicator-note-bike" ng-class="{'mui-active':$index == 0}"
+                         ng-repeat="binderVehicle in binderVehicleList"></div>
+                </div>
+            </div>
+            <div class="mui-slider img-contain" ng-hide="processStatus.value != 1||isEmpty">
+                <div class="mui-slider-group mui-slider-loop">
+                    <div class="mui-slider-item">
+                        <a class="img-size"><img src="./main/img/note-bike.png"/></a>
+                    </div>
+                </div>
+                <div style="margin-top: 42px">
+                </div>
+            </div>
+
+            <div class="img-contain" ng-if="isEmpty">
+                <a class="img-size"><img class="empty" src="./main/img/device-empty.png"/></a>
+            </div>
+
+            <div class="electricity-contain" ng-if="processStatus.value == 1">
+                <div class="electricity-desc"><span>剩余电量:</span><span>{{powerLabel}}</span></div>
+                <div class="electricity-line">
+                    <div class="electricity-inline" ng-style="{width:power}">
+                    </div>
+                </div>
+            </div>
+            <div class="btn-link-car" ng-class="{active:processStatus.value==1}" ng-click="linkDevice()">
+                <ion-content scroll="false" class="progress-position" ng-if="processStatus.value == 0">
+                    <p>
+                        <ion-spinner icon="android"></ion-spinner>
+                    </p>
+                </ion-content>
+                <img class="img-bluetooth" src="./main/img/icon-bluetooth.png" ng-if="processStatus.value==1 "/>
+                {{processStatus.name}}
+            </div>
+        </div>
+
+        <div class="bottom-card">
+            <div class="mileage">
+                <span>骑行总里程</span>
+                <div>
+                    <span>{{selectedModel.ride_mileage|tripFloat2}}</span>
+                    <span>km</span>
+                </div>
+            </div>
+            <div class="time">
+                <span>骑行总用时</span>
+                <div>
+                    <span>{{selectedModel.ride_time|rideHour}}</span>
+                    <span>h</span>
+                    <span>{{selectedModel.ride_time|rideMinute}}</span>
+                    <span>m</span>
+                </div>
+            </div>
+            <div class="count">
+                <span>累计次数</span>
+                <div>
+                    <span>{{selectedModel.ride_count?selectedModel.ride_count:0}}</span>
+                    <span>次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-guide" ng-if="isShowTip">
+        <div class="scan">
+            <img src="./main/img/scan.png">
+        </div>
+        <div class="arrow-line">
+            <img src="./main/img/arrow-line.png">
+        </div>
+        <div class="tip">
+            <span>点击左上角的扫描按钮绑定车辆</span>
+        </div>
+
+        <div class="btn">
+            <div ng-click="cancelTip()">我知道了</div>
+        </div>
+
+    </div>
+</div>

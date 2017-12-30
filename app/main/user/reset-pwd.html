@@ -1,0 +1,25 @@
+<div class="reset-pwd" ng-controller="UserPwdResetController">
+
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <a href="javascript:;" ng-click="goBack()"
+           class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+            <img src="./main/img/icon-arrow-left.png" class="left">
+        </a>
+        <h1 class="mui-title">修改密码</h1>
+    </header>
+
+    <div class="content">
+        <div class="input-contain">
+            <input type="password" placeholder="请输入原始密码" ng-model="password" ng-focus="stopTouch()">
+        </div>
+        <div class="input-contain mt-5">
+            <input type="password" placeholder="请输入新密码" ng-model="newPassword" ng-focus="stopTouch()">
+        </div>
+        <div class="input-contain mt-5">
+            <input type="password" placeholder="请确认新密码" ng-model="repeatNewPassword" ng-focus="stopTouch()">
+        </div>
+        <button class="btn-complete mt-5" ng-class='{none: !password || !newPassword || !repeatNewPassword}' ng-click="resetPassword()">
+            完成
+        </button>
+    </div>
+</div>

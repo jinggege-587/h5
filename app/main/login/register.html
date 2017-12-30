@@ -1,0 +1,29 @@
+<div class="register" ng-controller="LoginRegisterController">
+    <div class="title">
+        <button class="left" ng-click="goBack()">
+            <img src="./main/img/login-back.png">
+        </button>
+        <span class="mid">账号注册</span>
+    </div>
+
+    <div class="content">
+        <div class="form-group">
+            <label for="phone">手机号:</label>
+            <input type="text" class="form-control" id="phone" placeholder="请输入手机号" ng-model="phone" ng-focus="stopTouch()">
+        </div>
+        <div class="form-group">
+            <label for="password">密码:</label>
+            <input type="password" class="form-control" id="password" placeholder="请输入密码" ng-model="password" ng-focus="stopTouch()">
+        </div>
+        <div class="form-group">
+            <label for="vcode">验证码:</label>
+            <input type="text" class="form-control" id="vcode" placeholder="请输入验证码" ng-model="vcode" ng-focus="stopTouch()">
+        </div>
+        <div class="forget-pwd" style="top: 152px;" ng-click="forgetPassword()">忘记密码?</div>
+        <div class="send-code" ng-click="getSmsCode()">{{wait.name}}</div>
+    </div>
+
+    <div class="bottom">
+        <div class="bottom-btn finish" ng-class="{'activate': phone && password && vcode}" ng-click="register()">完 成</div>
+    </div>
+</div>

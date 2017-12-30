@@ -1,0 +1,65 @@
+.reset-nickname {
+
+    padding-top: 45px;
+
+    .content {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 45px);
+        padding: 5px;
+
+        .input-contain {
+            width: 100%;
+            height: 49px;
+            padding: 12px 10px;
+            background: #fff;
+            border: 1px solid #DDD;
+
+            ::-webkit-input-placeholder {
+                color: #CFD4DE;
+                font-size: 16px;
+            }
+
+            ::-moz-placeholder {
+                color: #CFD4DE;
+                font-size: 16px;
+            }
+
+            :-ms-input-placeholder {
+                color: #CFD4DE;
+                font-size: 16px;
+            }
+        }
+
+        .none {
+            width: 100%;
+            height: 49px;
+            color: #ffffff !important;
+            border-radius: 4px;
+            background: #E3E5EA !important;
+            font-size: 16px;
+            border: none;
+        }
+
+        .btn-complete {
+            width: 100%;
+            height: 49px;
+            color: #ffffff;
+            border-radius: 4px;
+            background: #FF8A29;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        .desc {
+            color: #CFD4DE;
+            font-size: 14px;
+            float: right;
+            margin-top: 5px;
+        }
+        .desc-tips {
+            color: #E55140;
+        }
+    }
+
+}

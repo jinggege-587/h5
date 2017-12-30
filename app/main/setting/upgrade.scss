@@ -1,0 +1,64 @@
+.setting-upgrade {
+    height: 100%;
+    padding-top: 45px;
+
+    .content {
+        padding: 10px 5px;
+        ul.list {
+            li {
+                background: #FFFFFF;
+                border: 1px solid #CACFD9;
+                box-shadow: 0 1px 2px 0 rgba(129, 138, 193, 0.20);
+                border-radius: 2px;
+                padding: 11px 3px;
+                display: flex;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
+
+                margin-bottom: 5px;
+
+                span {
+                    display: block;
+                    font-size: 14px;
+                    color: #6C739A;
+                    margin-left: 10px;
+                }
+                span + span {
+                    display: block;
+                    font-size: 16px;
+                    color: #FF811B;
+                    margin-left: 10px;
+                }
+                .btn-right {
+                    display: block;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    width: 60px;
+                    height: 28px;
+                    border: 1px #CAD3DD solid;
+
+                    .bg-loading {
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background: #FF811B;
+                    }
+                    .process {
+                        font-size: 12px;
+                        z-index: 10;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        margin-left: 18px;
+                        margin-top: 3px;
+                    }
+
+                }
+            }
+        }
+    }
+
+}

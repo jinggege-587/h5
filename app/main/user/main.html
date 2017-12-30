@@ -1,0 +1,73 @@
+<div class="main-user" ng-controller="UserMainController">
+
+    <header class="mui-bar mui-bar-nav dix-bar-menu">
+        <h1 class="mui-title">个人</h1>
+    </header>
+
+    <div class="content">
+        <div class="user-card" ng-click="openUserDetail()">
+            <div class="left">
+                <div class="avatar">
+                    <img src="./main/img/avatar.png" ng-src="{{avatar}}"/>
+                </div>
+
+                <span>{{user.username || user.phone}}</span>
+            </div>
+            <span class="mui-icon mui-icon-arrowright icon-arrow-font"></span>
+        </div>
+        <div class="mileage-card">
+            <div class="total-mileage">
+                <span>总里程</span>
+                <span>{{user.mileage|tripFloat2}}km</span>
+            </div>
+            <div class="total-time">
+                <span>总用时</span>
+                <span>{{user.total_use_time|tripFloat2}}h</span>
+            </div>
+        </div>
+
+        <div class="mui-card setting-card">
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell between">
+                    <div class="center">
+                        <img class="icon-push" src="./main/img/icon-push.png">
+                        <span class="user-card-content-text">推送开关</span>
+                    </div>
+                    <div id="setting" class="mui-switch mui-switch-mini" ng-class="{'mui-active':setting.push == 1}">
+                        <div class="mui-switch-handle"></div>
+                    </div>
+                </li>
+                <!--<li class="mui-table-view-cell between">-->
+                    <!--<div class="center">-->
+                        <!--<img class="icon-help" src="./main/img/icon-help.png">-->
+                        <!--<span class="user-card-content-text">帮助</span>-->
+                    <!--</div>-->
+                    <!--<span class="mui-icon mui-icon-arrowright icon-arrow-font"></span>-->
+                <!--</li>-->
+                <li class="mui-table-view-cell between" ng-click="about()">
+                    <div class="center">
+                        <img class="icon-about" src="./main/img/icon-about.png">
+                        <span class="user-card-content-text">关于</span>
+                    </div>
+                    <span class="mui-icon mui-icon-arrowright icon-arrow-font"></span>
+                </li>
+                <li class="mui-table-view-cell between" ng-click="feedback()">
+                    <div class="center">
+                        <img class="icon-feedback" src="./main/img/icon-feedback.png">
+                        <span class="user-card-content-text">问题反馈</span>
+                    </div>
+                    <span class="mui-icon mui-icon-arrowright icon-arrow-font"></span>
+                </li>
+                <li class="mui-table-view-cell between" ng-click="course()">
+                    <div class="center">
+                        <img class="icon-tutorial" src="./main/img/icon-tutorial.png">
+                        <span class="user-card-content-text">新手教程</span>
+                    </div>
+                    <span class="mui-icon mui-icon-arrowright icon-arrow-font"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>

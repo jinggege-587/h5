@@ -1,0 +1,343 @@
+@import "variable";
+
+html, body {
+    overflow: auto;
+    background: #F3F5FA;
+    height: 100%;
+}
+
+.page-content {
+    padding-top: 45px;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
+.clear-0 {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    float: none;
+    overflow: hidden;
+}
+
+.clear-10 {
+    clear: both;
+    height: 10px;
+    font-size: 0;
+    float: none;
+    overflow: hidden;
+}
+
+.clear-20 {
+    clear: both;
+    height: 20px;
+    font-size: 0;
+    float: none;
+    overflow: hidden;
+}
+
+.clear-30 {
+    clear: both;
+    height: 30px;
+    font-size: 0;
+    float: none;
+    overflow: hidden;
+}
+
+.clear-40 {
+    clear: both;
+    height: 40px;
+    font-size: 0;
+    float: none;
+    overflow: hidden;
+}
+
+.clear-50 {
+    clear: both;
+    height: 50px;
+    font-size: 0;
+    float: none;
+    overflow: hidden;
+}
+
+.clear-60 {
+    clear: both;
+    height: 60px;
+    font-size: 0;
+    float: none;
+    overflow: hidden;
+}
+
+.ml-0 {
+    margin-left: 0
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.mt-0 {
+    margin-top: 0
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mr-0 {
+    margin-right: 0
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.hide {
+    display: none;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+ng\:form {
+    display: block;
+}
+
+.ng-animate-start {
+    clip: rect(0, auto, auto, 0);
+    -ms-zoom: 1.0001;
+}
+
+.ng-animate-active {
+    clip: rect(-1px, auto, auto, 0);
+    -ms-zoom: 1;
+}
+
+.mui-btn.mui-btn-small {
+    width: 70px !important;
+    font-size: 12px;
+    padding: 3px 6px;
+    line-height: 1.4 !important;
+}
+
+.modal {
+    //background-color: transparent !important;
+    padding-top: 150px;
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.modal-backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    padding-top: 160px;
+    z-index: 9999;
+}
+
+.mui-bar .mui-btn-nav.mui-pull-left {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.mui-bar .mui-btn-nav.mui-pull-right {
+    margin-right: 5px;
+}
+
+.mui-title {
+    font-size: 18px;
+}
+
+//重定义bar
+.bar {
+    position: fixed;
+}
+
+//重定义mui bar
+.dix-bar-menu {
+    z-index: 10;
+    height: 45px;
+    background: #ffffff;
+
+    .left {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: 3px;
+    }
+    .mui-title {
+        color: #050936;
+        font-size: 18px;
+    }
+    .right {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: 3px;
+    }
+
+}
+
+.mui-icon {
+    font-family: Muiicons;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+.mui-icon-arrowright:before {
+    content: '\e583';
+}
+
+input[type=search], input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=tel], input[type=color], textarea {
+    border: 0;
+}
+
+input[type=search], input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=tel], input[type=color], textarea {
+    display: block;
+    padding-top: 2px;
+    padding-left: 0;
+    height: 34px;
+    color: #111;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.modal {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    overflow: hidden;
+    min-height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.modal-backdrop, .modal-backdrop-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.mui-card {
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 0 0 0;
+}
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 5px;
+    width: 100%;
+
+    .col {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -moz-box-flex: 1;
+        -moz-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        display: block;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .col-75 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 75%;
+        -moz-box-flex: 0;
+        -moz-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+}
+
+.list:last-child {
+    margin-bottom: 0;
+}
+
+.list {
+    position: relative;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 0;
+    margin: 0 0 20px 0;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.amap-copyright, .amap-logo {
+    display: none !important;
+}

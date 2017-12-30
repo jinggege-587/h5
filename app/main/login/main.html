@@ -1,0 +1,32 @@
+<div class="main-login" ng-controller="LoginMainController">
+    <!--<div class="top" ng-click="quickLogin()" ng-if="isGuest">-->
+        <!--<span >快速进入</span>-->
+    <!--</div>-->
+
+    <div class="logo">
+        <img src="./main/img/logo.png">
+        <span>Notebike</span>
+    </div>
+
+    <div class="bottom" ng-if="isGuest">
+
+        <!--<div class="other-login-contain">-->
+            <!--<div class="other-login-item">-->
+                <!--<img class="qq" src="./main/img/qq.png"/>-->
+                <!--<span>QQ登录</span>-->
+            <!--</div>-->
+            <!--<div class="other-login-item">-->
+                <!--<img class="wx" src="./main/img/wx.png"/>-->
+                <!--<span>微信登录</span>-->
+            <!--</div>-->
+            <!--<div class="other-login-item">-->
+                <!--<img class="wb" src="./main/img/wb.png"/>-->
+                <!--<span>微博登录</span>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <span class="register-btn" ng-click="register()">注  册</span>
+        <span class="login-btn" ng-click="login()">登  录</span>
+    </div>
+
+</div>
